@@ -16,7 +16,7 @@ def howdy():
 def md5(string):
 	hash_object = hashlib.md5(string.encode())
 	md5_hash = hash_object.hexdigest()
-	return jsonify(md5_hash)
+	return jsonify(input=string, output=md5_hash)
     
 @app.route("/factorial/<num>")
 def fact(num):
@@ -29,7 +29,7 @@ def fact(num):
 	else:
 		for i in range(1,intnum + 1):
 			factorial = factorial*i
-		return jsonify(str(factorial))
+		return jsonify(input=int(num), output=int(factorial))
     
 
 @app.route('/fibonacci/<int(signed=True):x>')
